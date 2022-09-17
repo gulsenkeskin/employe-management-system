@@ -9,8 +9,17 @@
   <span>Employee Management System</span>
   <span class="spacer"></span>
 
-  <button mat-flat-button color="accent">
+  <button mat-flat-button color="accent" (click)="openDialog()">
     New Employee
     <!-- <mat-icon>add</mat-icon> -->
   </button>
 </mat-toolbar>
+
+<main>
+  <mat-form-field appearance="standard" class="search-box">
+    <mat-label>Search Employees</mat-label>
+    <input matInput placeholder="Eda" #input />
+  </mat-form-field>
+
+  <mat-card>No employees to display</mat-card>
+</main>
