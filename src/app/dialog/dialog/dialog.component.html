@@ -72,12 +72,11 @@
 
     <div class="row mt-3">
       <div class="col">
-        <select class="form-select">
+        <select class="form-select" formControlName="education">
           <option value="default" selected>Select your Education</option>
           <option
             *ngFor="let option of educationOptions; let i = index"
-            [value]="i"
-            formControlName="education"
+            value="{{ i }}"
           >
             {{ option | titlecase }}
           </option>

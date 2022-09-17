@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { EmployeeService } from 'src/app/employee.service';
 import { Employee } from 'src/app/models/employee.model';
 
 @Component({
@@ -8,8 +9,7 @@ import { Employee } from 'src/app/models/employee.model';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })
-export class DialogComponent implements OnInit, AfterViewInit {
-  @ViewChild('tempButton') buttontemp: any;
+export class DialogComponent implements OnInit {
   employeeForm: FormGroup;
   employees: Employee[];
   employeesToDisplay: Employee[];
@@ -21,7 +21,7 @@ export class DialogComponent implements OnInit, AfterViewInit {
     "PhD"
   ]
 
-  constructor(private fb: FormBuilder,) {
+  constructor(private fb: FormBuilder, private employeeService: EmployeeService) {
     this.employeeForm = fb.group({});
     this.employees = [];
     this.employeesToDisplay = this.employees;
@@ -39,11 +39,15 @@ export class DialogComponent implements OnInit, AfterViewInit {
       company: this.fb.control(''),
       jobExperience: this.fb.control(''),
       salary: this.fb.control(''),
+    });
+
+    this.employeeService.getEmployees().subscribe(res => {
+      console.log(res);
+
     })
+
   }
-  ngAfterViewInit(): void {
-    this.buttontemp.nativeElement.click();
-  }
+
 
 
 
