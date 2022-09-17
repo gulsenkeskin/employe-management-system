@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EmployeeService } from 'src/app/employee.service';
 import { Employee } from 'src/app/models/employee.model';
 
@@ -20,14 +20,15 @@ export class DialogComponent implements OnInit {
     "post graduate",
     "PhD"
   ]
+  actionBtn: string = "Save"
 
-  constructor(private fb: FormBuilder, private employeeService: EmployeeService) {
+
+  constructor(private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public editData: any, private dialogRef: MatDialogRef<DialogComponent>, private employeeService: EmployeeService) {
     this.employeeForm = fb.group({});
     this.employees = [];
     this.employeesToDisplay = this.employees;
   }
 
-  // constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
@@ -40,13 +41,23 @@ export class DialogComponent implements OnInit {
       jobExperience: this.fb.control(''),
       salary: this.fb.control(''),
     });
+    if (this.editData) {
+      this.actionBtn = "Update"
 
-    this.employeeService.getEmployees().subscribe(res => {
-      console.log(res);
+      this.employeeForm.controls['firstname'].setValue(this.editData.firstname);
+      this.employeeForm.controls['lastname'].setValue(this.editData.lastname);
+      this.employeeForm.controls['birthday'].setValue(this.editData.birthday);
+      this.employeeForm.controls['gender'].setValue(this.editData.gender);
+      this.employeeForm.controls['education'].setValue(this.editData.education);
+      this.employeeForm.controls['company'].setValue(this.editData.company);
+      this.employeeForm.controls['jobExperience'].setValue(this.editData.jobExperience);
+      this.employeeForm.controls['salary'].setValue(this.editData.salary);
 
-    })
+    }
+
 
   }
+
 
 
 
