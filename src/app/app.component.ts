@@ -68,4 +68,8 @@ export class AppComponent implements OnInit {
 
   }
 
+  editEmployee(event: any) {
+
+  }
+
 }
