@@ -2,7 +2,7 @@
   <div class="row g-0">
     <div class="col-md-2 d-flex justify-content-center align-items-center">
       <img
-        src="../../assets/Images/img-1.jpg"
+        src="../../assets/Images/{{ employee.profile }}"
         alt="Profile Image"
         class="profile"
       />
@@ -10,7 +10,10 @@
     <div class="col ps-2">
       <div class="row g-0">
         <div class="col-md-10 text-center">
-          <span class="name">Rohit Sharma</span>
+          <span class="name">
+            {{ employee.firstname | titlecase }}
+            {{ employee.lastname | titlecase }}
+          </span>
         </div>
         <div class="col-md-2 d-flex justify-content-center align-items-center">
           <div class="btn-group" role="group">
@@ -31,15 +34,15 @@
             <tbody>
               <tr>
                 <td>Birthdate</td>
-                <td>22/09/2020</td>
+                <td>{{ employee.birthdate }}</td>
               </tr>
               <tr>
-                <td>Gende</td>
-                <td>Male</td>
+                <td>Gender</td>
+                <td>{{ employee.gender === "m" ? "Male" : "Female" }}</td>
               </tr>
               <tr>
                 <td>Education</td>
-                <td>phd</td>
+                <td>{{ employee.education | titlecase }}</td>
               </tr>
             </tbody>
           </table>
@@ -54,15 +57,15 @@
             <tbody>
               <tr>
                 <td>Company</td>
-                <td>Microsoft</td>
+                <td>{{ employee.company }}</td>
               </tr>
               <tr>
                 <td>Experience</td>
-                <td>3 yrs</td>
+                <td>{{ employee.jobExperience }}</td>
               </tr>
               <tr>
                 <td>Salary</td>
-                <td>1000000</td>
+                <td>{{ employee.salary | currency }}</td>
               </tr>
             </tbody>
           </table>

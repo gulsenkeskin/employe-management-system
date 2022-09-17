@@ -7,7 +7,7 @@ import { Employee } from 'src/app/models/employee.model';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
-  @Input() employee?: Employee;
+  @Input() employee!: Employee;
 
   constructor() { }
 

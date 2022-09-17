@@ -22,6 +22,29 @@
       "salary": 34,
       "profile": "reçete.jpeg",
       "id": 2
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "birthday": "",
+      "gender": "",
+      "education": "",
+      "company": "",
+      "jobExperience": "",
+      "salary": "",
+      "id": 3
+    },
+    {
+      "firstname": "Dneme",
+      "lastname": "dfsdf",
+      "birthday": "2022-09-17",
+      "gender": "m",
+      "education": "0",
+      "company": "sdfds",
+      "jobExperience": 3,
+      "salary": 24,
+      "profile": "img-9.jpg",
+      "id": 4
     }
   ],
   "comments": [
