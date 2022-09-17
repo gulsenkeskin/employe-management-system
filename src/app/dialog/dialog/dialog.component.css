@@ -1,9 +1,0 @@
-.rowSpaceBetween {
-  display: inline;
-  justify-content: space-between;
-  width: 100%;
-}
-
-mat-dialog-content {
-  width: 100%;
-}
