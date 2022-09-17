@@ -22,6 +22,7 @@ export class DialogComponent implements OnInit {
   ]
   actionBtn: string = "Save"
 
+  @ViewChild('fileInput') fileInput: any;
 
   constructor(private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public editData: any, private dialogRef: MatDialogRef<DialogComponent>, private employeeService: EmployeeService) {
     this.employeeForm = fb.group({});
@@ -58,6 +59,47 @@ export class DialogComponent implements OnInit {
 
   }
 
+  clearForm() {
+    this.employeeForm.reset();
+    this.fileInput.nativeElement.value = "";
+  }
+
+  addEmployee() {
+    if (!this.editData) {
+      if (this.employeeForm.valid) {
+        let employee: Employee = { ...this.employeeForm.value, profile: this.fileInput.nativeElement.files[0]?.name }
+        this.employeeService.postEmployee(employee).subscribe({
+          next: (res) => {
+            alert("Employee added successfully");
+            this.clearForm();
+            this.dialogRef.close("save");
+          },
+          error: () => {
+            alert("Error while adding the employee")
+
+          }
+        })
+      }
+    } else {
+      // this.updateEmployee();
+    }
+  }
+
+  // updateEmployee() {
+  //   this.employeeService.postEmployee(this.employeeForm.value, this.editData.id).subscribe(
+  //     {
+  //       next: (res) => {
+  //         alert("Product updated successfuly");
+  //         this.productForm.reset();
+  //         this.dialogRef.close("update");
+  //       },
+  //       error: () => {
+  //         alert("Error while updating the record!");
+  //       }
+  //     }
+  //   )
+
+  // }
 
 
 
