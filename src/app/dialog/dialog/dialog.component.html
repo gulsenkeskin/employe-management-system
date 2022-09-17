@@ -1,5 +1,18 @@
-<h1 mat-dialog-title>Favorite Animal</h1>
-<div mat-dialog-content>
-  My favorite animal is:
-  <ul></ul>
-</div>
+<h3 mat-dialog-title>Enter Employee Information</h3>
+<mat-dialog-content class="mat-typography">
+  <form action="">
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="First Name" />
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Last Name" />
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial color="primary">
+    Insert
+  </button>
+</mat-dialog-actions>
