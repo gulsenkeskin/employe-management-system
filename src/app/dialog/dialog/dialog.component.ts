@@ -62,6 +62,7 @@ export class DialogComponent implements OnInit {
   }
 
   addEmployee() {
+    console.log("ssssssssss", this.editData)
     if (!this.editData) {
       if (this.employeeForm.valid) {
         let employee: Employee = { ...this.employeeForm.value, profile: this.fileInput.nativeElement.files[0]?.name }
@@ -78,25 +79,29 @@ export class DialogComponent implements OnInit {
         })
       }
     } else {
-      // this.updateEmployee();
+      this.updateEmployee();
     }
   }
 
-  // updateEmployee() {
-  //   this.employeeService.postEmployee(this.employeeForm.value, this.editData.id).subscribe(
-  //     {
-  //       next: (res) => {
-  //         alert("Product updated successfuly");
-  //         this.productForm.reset();
-  //         this.dialogRef.close("update");
-  //       },
-  //       error: () => {
-  //         alert("Error while updating the record!");
-  //       }
-  //     }
-  //   )
+  updateEmployee() {
+    let employee: Employee = { ...this.editData, ...this.employeeForm.value, profile: this.fileInput.nativeElement.files[0]?.name }
 
-  // }
+    console.log("aaaaaa", employee)
+
+    this.employeeService.putEmployee(employee).subscribe(
+      {
+        next: (res) => {
+          alert("Employee updated successfuly");
+          this.clearForm();
+          this.dialogRef.close("update");
+        },
+        error: () => {
+          alert("Error while updating the record!");
+        }
+      }
+    )
+
+  }
 
 
 

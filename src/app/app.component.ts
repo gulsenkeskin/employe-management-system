@@ -68,7 +68,15 @@ export class AppComponent implements OnInit {
 
   }
 
-  editEmployee(event: any) {
+  editEmployee(event: Employee) {
+    this.dialog.open(DialogComponent, {
+      data: event
+    }).afterClosed().subscribe(val => {
+      //close da gönderdğimiz değer buraya düşer
+      // if (val === "save") {
+      this.getAllEmployee();
+      // }
+    });
 
   }
 
