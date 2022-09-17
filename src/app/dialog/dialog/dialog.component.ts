@@ -14,4 +14,12 @@ export class DialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  educationOptions = [
+    "10th pass",
+    "diploma",
+    "graduate",
+    "post graduate",
+    "PhD"
+  ]
+
 }

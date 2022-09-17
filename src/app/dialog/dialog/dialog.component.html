@@ -52,6 +52,32 @@
         </div>
       </div>
     </div>
+
+    <div class="row mt-3">
+      <div class="col">
+        <select class="form-select">
+          <option value="default" selected>Select your Education</option>
+          <option
+            *ngFor="let option of educationOptions; let i = index"
+            [value]="i"
+          >
+            {{ option | titlecase }}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h3 class="text-secondary fst-italic">Job Information</h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Company Name" />
+      </div>
+    </div>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
