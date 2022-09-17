@@ -10,11 +10,13 @@ import { DialogComponent } from './dialog/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EmployeeComponent } from './employee/employee/employee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
+    EmployeeComponent,
   ],
   imports: [
     BrowserModule,

@@ -11,8 +11,7 @@ import { Employee } from 'src/app/models/employee.model';
 })
 export class DialogComponent implements OnInit {
   employeeForm: FormGroup;
-  employees: Employee[];
-  employeesToDisplay: Employee[];
+
   educationOptions = [
     "10th pass",
     "diploma",
@@ -26,8 +25,6 @@ export class DialogComponent implements OnInit {
 
   constructor(private fb: FormBuilder, @Inject(MAT_DIALOG_DATA) public editData: any, private dialogRef: MatDialogRef<DialogComponent>, private employeeService: EmployeeService) {
     this.employeeForm = fb.group({});
-    this.employees = [];
-    this.employeesToDisplay = this.employees;
   }
 
 

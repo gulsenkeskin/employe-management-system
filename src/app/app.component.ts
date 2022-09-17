@@ -2,6 +2,7 @@ import { Component, OnInit, } from '@angular/core';
 import { MatDialog, } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog/dialog.component';
 import { EmployeeService } from './employee.service';
+import { Employee } from './models/employee.model';
 
 @Component({
   selector: 'app-root',
@@ -10,15 +11,16 @@ import { EmployeeService } from './employee.service';
 })
 export class AppComponent implements OnInit {
   title = 'employe-management-system';
+  employees: Employee[];
+  employeesToDisplay: Employee[];
 
-  constructor(public dialog: MatDialog, private employeeService: EmployeeService) { }
+  constructor(public dialog: MatDialog, private employeeService: EmployeeService) {
+    this.employees = [];
+    this.employeesToDisplay = this.employees;
+  }
 
   ngOnInit(): void {
-    this.employeeService.getEmployees().subscribe(res => {
-      console.log(res);
-
-    })
-
+    this.getAllEmployee();
   }
 
 
@@ -27,8 +29,28 @@ export class AppComponent implements OnInit {
       // data: {
       //   // animal: 'panda',
       // },
+    }).afterClosed().subscribe(val => {
+      //close da gönderdğimiz değer buraya düşer
+      if (val === "save") {
+        this.getAllEmployee();
+      }
     });
   }
 
+
+  getAllEmployee() {
+    this.employeeService.getEmployees().subscribe({
+      next: (res: any) => {
+        this.employees = res;
+        this.employeesToDisplay = this.employees;
+
+        console.log("dskfjks", this.employees);
+
+      }, error: () => {
+        alert("Error while fetching the records");
+      }
+    })
+
+  }
 
 }
