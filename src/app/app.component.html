@@ -38,7 +38,7 @@
     *ngFor="let employee of employeesToDisplay; let i = index"
   >
     <div class="col">
-      <app-employee></app-employee>
+      <app-employee [employee]="employee"></app-employee>
     </div>
   </div>
 </main>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Employee } from 'src/app/models/employee.model';
 
 @Component({
   selector: 'app-employee',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employee.component.css']
 })
 export class EmployeeComponent implements OnInit {
+  @Input() employee?: Employee;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log("dfsdfsdfsdfds", this.employee)
   }
 
 }
