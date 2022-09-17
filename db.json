@@ -1,40 +1,6 @@
 {
   "posts": [
     {
-      "firstname": "w4rewr",
-      "lastname": "ewrwe",
-      "birthday": "2022-09-18",
-      "gender": "m",
-      "education": "1",
-      "company": "werwe",
-      "jobExperience": 6,
-      "salary": 56456,
-      "id": 1
-    },
-    {
-      "firstname": "e435345",
-      "lastname": "34534534",
-      "birthday": "2022-09-18",
-      "gender": "f",
-      "education": "0",
-      "company": "34534",
-      "jobExperience": 345435,
-      "salary": 34,
-      "profile": "reçete.jpeg",
-      "id": 2
-    },
-    {
-      "firstname": "",
-      "lastname": "",
-      "birthday": "",
-      "gender": "",
-      "education": "",
-      "company": "",
-      "jobExperience": "",
-      "salary": "",
-      "id": 3
-    },
-    {
       "firstname": "Dneme",
       "lastname": "dfsdf",
       "birthday": "2022-09-17",
@@ -47,13 +13,7 @@
       "id": 4
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
+  "comments": [],
   "profile": {
     "name": "typicode"
   }

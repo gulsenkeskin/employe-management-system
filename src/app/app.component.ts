@@ -53,4 +53,19 @@ export class AppComponent implements OnInit {
 
   }
 
+  removeEmployee(id: any) {
+    this.employeeService.deleteEmployee(id).subscribe(
+      {
+        next: (res) => {
+          alert("Product Deleted Successfuly");
+          this.getAllEmployee();
+        },
+        error: () => {
+          alert("Error while deleting rhe product")
+        }
+      }
+    )
+
+  }
+
 }
