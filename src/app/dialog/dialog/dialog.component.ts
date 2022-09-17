@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, ViewChild, AfterViewInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Employee } from 'src/app/models/employee.model';
 
 @Component({
   selector: 'app-dialog',
@@ -9,7 +10,9 @@ import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class DialogComponent implements OnInit, AfterViewInit {
   @ViewChild('tempButton') buttontemp: any;
-  employeeForm!: FormGroup;
+  employeeForm: FormGroup;
+  employees: Employee[];
+  employeesToDisplay: Employee[];
   educationOptions = [
     "10th pass",
     "diploma",
@@ -17,7 +20,13 @@ export class DialogComponent implements OnInit, AfterViewInit {
     "post graduate",
     "PhD"
   ]
-  constructor(private fb: FormBuilder,) { }
+
+  constructor(private fb: FormBuilder,) {
+    this.employeeForm = fb.group({});
+    this.employees = [];
+    this.employeesToDisplay = this.employees;
+  }
+
   // constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   ngOnInit(): void {
