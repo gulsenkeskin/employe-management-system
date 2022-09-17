@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dialog',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dialog.component.css']
 })
 export class DialogComponent implements OnInit {
+  employeeForm!: FormGroup;
 
   constructor() { }
 
