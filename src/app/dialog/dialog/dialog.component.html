@@ -1,12 +1,22 @@
 <h3 mat-dialog-title>Enter Employee Information</h3>
 <mat-dialog-content class="mat-typography">
-  <form action="">
+  <form [formGroup]="employeeForm">
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="First Name" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="First Name"
+          formControlName="firstname"
+        />
       </div>
       <div class="col">
-        <input type="text" class="form-control" placeholder="Last Name" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Last Name"
+          formControlName="lastname"
+        />
       </div>
     </div>
 
@@ -20,7 +30,12 @@
     <div class="row">
       <div class="col">
         <label for="datepicker" class="form-label">Birthdate</label>
-        <input type="date" class="form-control" id="datepicker" />
+        <input
+          type="date"
+          formControlName="birthday"
+          class="form-control"
+          id="datepicker"
+        />
       </div>
       <div class="col">
         <div class="row">
@@ -35,6 +50,7 @@
                 name="gender"
                 id="male"
                 value="m"
+                formControlName="gender"
               />
               <label for="male" class="form-check-label">Male</label>
             </div>
@@ -45,6 +61,7 @@
                 name="gender"
                 id="female"
                 value="f"
+                formControlName="gender"
               />
               <label for="female" class="form-check-label">Female</label>
             </div>
@@ -60,6 +77,7 @@
           <option
             *ngFor="let option of educationOptions; let i = index"
             [value]="i"
+            formControlName="education"
           >
             {{ option | titlecase }}
           </option>
@@ -82,7 +100,12 @@
 
     <div class="row">
       <div class="col">
-        <input type="text" class="form-control" placeholder="Company Name" />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Company Name"
+          formControlName="company"
+        />
       </div>
     </div>
 
@@ -92,10 +115,16 @@
           type="number"
           class="form-control"
           placeholder="Jon Experience (yes)"
+          formControlName="jobExperience"
         />
       </div>
       <div class="col">
-        <input type="number" class="form-control" placeholder="Salary(LPA)" />
+        <input
+          type="number"
+          class="form-control"
+          placeholder="Salary(LPA)"
+          formControlName="salary"
+        />
       </div>
     </div>
   </form>
