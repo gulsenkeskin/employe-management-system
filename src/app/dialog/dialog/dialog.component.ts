@@ -62,7 +62,6 @@ export class DialogComponent implements OnInit {
   }
 
   addEmployee() {
-    console.log("ssssssssss", this.editData)
     if (!this.editData) {
       if (this.employeeForm.valid) {
         let employee: Employee = { ...this.employeeForm.value, profile: this.fileInput.nativeElement.files[0]?.name }
@@ -88,8 +87,6 @@ export class DialogComponent implements OnInit {
     if (this.fileInput.nativeElement.files[0]?.name) {
       employee = { ...employee, profile: this.fileInput.nativeElement.files[0]?.name }
     }
-
-    console.log("aaaaaa", employee)
 
     this.employeeService.putEmployee(employee).subscribe(
       {
