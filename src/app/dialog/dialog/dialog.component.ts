@@ -84,7 +84,10 @@ export class DialogComponent implements OnInit {
   }
 
   updateEmployee() {
-    let employee: Employee = { ...this.editData, ...this.employeeForm.value, profile: this.fileInput.nativeElement.files[0]?.name }
+    let employee: Employee = { ...this.editData, ...this.employeeForm.value }
+    if (this.fileInput.nativeElement.files[0]?.name) {
+      employee = { ...employee, profile: this.fileInput.nativeElement.files[0]?.name }
+    }
 
     console.log("aaaaaa", employee)
 
