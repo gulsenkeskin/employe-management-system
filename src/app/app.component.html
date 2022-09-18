@@ -22,6 +22,8 @@
         type="search"
         class="form-control"
         placeholder="Search Employees"
+        #searchInput
+        (input)="searchEmployees(searchInput.value)"
       />
     </div>
   </div>
